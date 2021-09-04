@@ -8,6 +8,8 @@ import UserList from "./Pages/UserList/UserList";
 import User from "./Pages/User/User";
 import NewUser from "./Pages/NewUser/NewUser";
 import ProductList from "./Pages/ProductsList/ProductList";
+import Product from "./Pages/Product/Product";
+import NewProduct from "./Pages/NewProduct/NewProduct";
 const App = () => {
   return (
     <>
@@ -32,7 +34,10 @@ const App = () => {
               <ProductList />
             </Route>
             <Route path="/product/:productId">
-            <Product />
+              <Product />
+            </Route>
+            <Route path="/newproduct">
+            <NewProduct />
           </Route>
           </Switch>
         </div>
