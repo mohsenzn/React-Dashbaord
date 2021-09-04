@@ -6,6 +6,8 @@ import Home from "./Pages/Home/Home";
 import "./App.css";
 import UserList from "./Pages/UserList/UserList";
 import User from "./Pages/User/User";
+import NewUser from "./Pages/NewUser/NewUser";
+import ProductList from "./Pages/ProductsList/ProductList";
 const App = () => {
   return (
     <>
@@ -23,6 +25,15 @@ const App = () => {
             <Route path="/user/:userId">
               <User />
             </Route>
+            <Route path="/newUser">
+              <NewUser />
+            </Route>
+            <Route path="/products">
+              <ProductList />
+            </Route>
+            <Route path="/product/:productId">
+            <Product />
+          </Route>
           </Switch>
         </div>
       </Router>
