@@ -2,7 +2,7 @@
   flex: 4;
 }
 
-.homeWidgets {
+.home__widgets {
   display: flex;
   margin: 20px;
 }

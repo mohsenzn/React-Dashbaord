@@ -30,7 +30,7 @@ const Info = () => {
         <div className="info__moneyContainer">
           <span className="money">$4.365</span>
           <span className="money__rate">
-            -11.4 <ArrowDownward className="info__icon negative" />
+            -11.4 <ArrowUpward className="info__icon " />
           </span>
         </div>
         <span className="info__sub">Compared to last month</span>
