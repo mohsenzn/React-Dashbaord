@@ -29,15 +29,32 @@ export const createMovie = createAsyncThunk(
     return res.data;
   }
 );
+// update
+export const UpdateMovie = createAsyncThunk(
+  "movie/createMovie",
+  async (movie) => {
+    const res = await axios
+      .put("/movies", movie, {
+        headers: {
+          token: `good ${JSON.parse(localStorage.getItem("user")).accessToken}`,
+        },
+      })
+      .catch((err) => console.log(err));
+
+    return res.data;
+  }
+);
 // delete Movie
 export const deleteMovie = createAsyncThunk("movie/deleteMovie", async (id) => {
-  return await axios
-    .delete(`/movies/${id}`, {
+  try {
+    await axios.delete(`/movies/${id}`, {
       headers: {
         token: `good ${JSON.parse(localStorage.getItem("user")).accessToken}`,
       },
-    })
-    .catch((err) => console.log(err));
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export const movieSlice = createSlice({
@@ -75,9 +92,11 @@ export const movieSlice = createSlice({
       };
     },
     [deleteMovie.fulfilled]: (state, action) => {
-      state.movies = state.movies.filter(
-        (movie) => movie._id !== action.payload
-      );
+      return {
+        movies: state.movies.filter((movie) => movie._id !== action.payload),
+        isFetching: true,
+        error: false,
+      };
     },
     [deleteMovie.rejected]: (state) => {
       return {
@@ -96,6 +115,8 @@ export const movieSlice = createSlice({
     [createMovie.fulfilled]: (state, action) => {
       return {
         movies: [...state.movies, action.payload],
+        isFetching: false,
+        error: false,
       };
     },
     [createMovie.rejected]: (state) => {

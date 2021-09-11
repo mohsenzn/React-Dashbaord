@@ -1,5 +1,5 @@
 import React from "react";
-import "./Product.css";
+import "./Movie.css";
 
 import { Publish } from "@material-ui/icons";
 import { Link, useLocation } from "react-router-dom";

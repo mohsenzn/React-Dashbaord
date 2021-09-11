@@ -12,10 +12,14 @@ import "./App.css";
 import UserList from "./Pages/UserList/UserList";
 import User from "./Pages/User/User";
 import NewUser from "./Pages/NewUser/NewUser";
-import ProductList from "./Pages/ProductsList/ProductList";
-import Product from "./Pages/Product/Product";
-import NewProduct from "./Pages/NewProduct/NewProduct";
+import ProductList from "./Pages/MovieList/MovieList";
+import Product from "./Pages/Movie/Movie";
+import NewProduct from "./Pages/NewMovie/NewMovie";
 import Login from "./Pages/Login/Login";
+import ListOfLists from "./Pages/ListOfLists/ListOfLists";
+import List from "./Pages/list/List";
+import NewList from "./Pages/NewList/NewList";
+
 import { useSelector } from "react-redux";
 const App = () => {
   const user = useSelector((state) => state.auth.user);
@@ -54,6 +58,15 @@ const App = () => {
                 </Route>
                 <Route path="/newproduct">
                   <NewProduct />
+                </Route>
+                <Route path="/lists">
+                  <ListOfLists />
+                </Route>
+                <Route path="/list/:listId">
+                  <List />
+                </Route>
+                <Route path="/newlist">
+                  <NewList />
                 </Route>
               </div>
             </>
